@@ -25,11 +25,11 @@
 	commande :
     ```dockerfile
     docker build -f ./Dockerfile -t my-apache-php .
-    ´´´
-    Le -f ./Dockerfile n'est pas nécessaire mais il peut résoudre des
+    ```
+    Le `-f ./Dockerfile` n'est pas nécessaire mais il peut résoudre des
     problèmes liés au fait que docker ne trouve pas le Dockerfile. Cette
     commande sera à utiliser à chaque fois qu'on met à jour notre site
-    internet. Le -t est là pour nommer notre image.
+    internet. Le `-t` est là pour nommer notre image.
 6. Maintenant que nous créé notre image nous pouvons relancer la
 	commande du point 2 mais remplaçant le nom par le nom spécifié au
 	point 5.
