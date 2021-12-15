@@ -1,11 +1,15 @@
 {
-  "name": "test",
+  "dependencies": {
+    "chance": "^1.1.8",
+    "express": "^4.17.1"
+  },
+  "name": "animals",
   "version": "0.1.0",
-  "description": "test",
+  "description": "Send random name, birthYear, gender and animal type",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "olivier tissot",
+  "author": "Olivier Tissot & Justin Rausis",
   "license": "ISC"
 }
