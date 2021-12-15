@@ -39,7 +39,11 @@ Pour pouvoir visualiser la configuration d'apache, il faut:
 docker exec -it docker_name bash
 ```
 2. Aller à l'endroit ou est le fichier de configuration:
-   `cd conf`
+```dockerfile
+cd conf
+```
 3. Visualiser le fichier de configuration:
-   `cat httpd.conf`
+```dockerfile
+cat httpd.conf
+```
    
