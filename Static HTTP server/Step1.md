@@ -1,7 +1,6 @@
 # Step1: Static HTTP server with apache httpd
 
 ## 1. Création d'un fichier dockerfile ayant comme contenu :
-
 ```dockerfile
 FROM php:7.2-apache
 COPY src/ /var/www/html/
@@ -9,7 +8,6 @@ COPY src/ /var/www/html/
 Ce contenu à été trouvé sur docker hub : https://hub.docker.com/_/php/ dans la section "Images variant". s'agit de l'image officiel implémentant déjà php.
 
 ## 2. Exécuter la commande dans un cmd :
-
 ```dockerfile 
 docker run -d -p 80:80 php:7.2-apache
 ```
@@ -19,11 +17,9 @@ essaie d'accéder à la page internet un message comme quoi nous n'avons pas le 
 ## 3. Créer un dossier src dans le même répertoire que le fichier Dockerfile
 
 ## 4. Y mettre le contenu d'un site
-
 nous avons choisi ce site https://startbootstrap.com/previews/sb-admin-2
 
 ## 5. Créer une nouvelle image
-
 Attention il faut se trouver dans le répertoire du docker file afin d'exécuter cette commande :
 ```dockerfile
 docker build -f ./Dockerfile -t my-apache-php .
@@ -35,3 +31,15 @@ Maintenant que nous créé notre image nous pouvons relancer la commande du poin
 ```dockerfile 
 docker run -d -p 80:80 my-apache-php
 ```
+
+## 7. Configuration d'apache
+Pour pouvoir visualiser la configuration d'apache, il faut:
+1. Entrer en commande dans le docker:
+```dockerfile
+docker exec -it docker_name bash
+```
+2. Aller à l'endroit ou est le fichier de configuration:
+   `cd conf`
+3. Visualiser le fichier de configuration:
+   `cat httpd.conf`
+   
