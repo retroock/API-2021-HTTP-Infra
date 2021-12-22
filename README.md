@@ -108,6 +108,7 @@ The third objective is to practice our usage of **Docker**. All the components o
 
 ## Additional steps to get extra points on top of the "base" grade
 
+utiliser traefik + docker-compose
 ### Load balancing: multiple server nodes (0.5pt)
 
 * You extend the reverse proxy configuration to support **load balancing**. 
@@ -129,6 +130,7 @@ The third objective is to practice our usage of **Docker**. All the components o
 * You describe your approach (are you implementing a discovery protocol based on UDP multicast? are you using a tool such as serf?)
 * You have documented your configuration and your validation procedure in your report.
 
+portaner pour le managment UI
 ### Management UI (0.5 pt)
 
 * You develop a web app (e.g. with express.js) that administrators can use to monitor and update your web infrastructure.
