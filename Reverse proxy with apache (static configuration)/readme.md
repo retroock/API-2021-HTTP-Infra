@@ -21,7 +21,11 @@ Nous allons faire deux commande aux lancements du container afin d'activer deux 
 Voici l'arborescence de ce dossier :
 <img src="./figures/arborescence.png" alt="arborescence"  />
 
-Comme écrit dans le Dockerfile, nous allons copier le contenu de ce dossier dans le dossier de configuration de notre serveur apache. Les deux fichiers commençant par 000 et 001 contiennent les informations de configuration des sites. Le premier fichier est le fichier par défaut, nous le gardons car comme ça si le client ne précise pas qu'elle site il veut accéder, c'est ce fichier qui sera accédé. Le deuxième fichier contient la configuration de notre reverse proxy statique, c'est ici que nous allons décrire comment on peut accéder à nos sites internet.
+Comme écrit dans le Dockerfile, nous allons copier le contenu de ce dossier dans le dossier de configuration de notre serveur apache. Les deux fichiers commençant par 000 et 001 contiennent les informations de configuration des sites. 
+
+Le premier fichier est le fichier par défaut, nous le gardons car comme ça si le client ne précise pas qu'elle site il veut accéder, c'est ce fichier qui sera accédé. 
+
+Le deuxième fichier contient la configuration de notre reverse proxy statique, c'est ici que nous allons décrire comment on peut accéder à nos sites internet.
 
 ### 000-default.conf
 
@@ -58,6 +62,8 @@ docker build -t apache_rp .
 ```
 ## Modification fichier hosts
 Lorsque l'on lance un container avec cette image, nous n'arrivons pas y accéder avec le navigateur. Il faut donc modifier le fichier hosts de la machine.
-Le fichier hosts se trouve à cet emplacement sous windows : C:\Windows\System32\drivers\etc\hosts
-Ensuite ajouter cette ligne : 127.0.0.1 proxy.api.ch
-Il est maintenant possible d'accéder au site internet en passant par le proxy en utilisant proxy.api.ch:8080. Si l'on désire accéder à notre deuxième site il faut faire proxy.api.ch:8080/api/zoo/. Il est aussi important de noter que nous ne pouvons plus accéder aux sites sans passer par ce proxy. Car ces derniers n'ont pas de ports mappés avec notre ordinateur et ils sont donc bien inaccessibles.
+Le fichier hosts se trouve à cet emplacement sous windows : `C:\Windows\System32\drivers\etc\hosts`
+
+Ensuite ajouter cette ligne : `127.0.0.1 proxy.api.ch`. Il est maintenant possible d'accéder au site internet en passant par le proxy en utilisant proxy.api.ch:8080. Si l'on désire accéder à notre deuxième site il faut faire proxy.api.ch:8080/api/zoo/. 
+
+Il est aussi important de noter que nous ne pouvons plus accéder aux sites sans passer par ce proxy. Car ces derniers n'ont pas de ports mappés avec notre ordinateur et ils sont donc bien inaccessibles.
