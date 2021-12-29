@@ -9,6 +9,8 @@ echo "Static app URL: $STATIC_APP"
 echo "Dynamic app URL: $DYNAMIC_APP"
 php /var/apache2/templates/config-template.php > /etc/apache2/sites-available/001-reverse-proxy.conf
 ```
+Il faudra donner à ce fichier les droits d'exécution, sous Linux cela se fait à l'aide de la commande : `chmod 755 apache2-foreground`. Sous Windows nous n'avons trouvé aucune solution afin de le faire, même en donnant le contrôle totale au groupe "Tout le monde" (Everyone) ça ne fonctionnait pas ce qui nous a fait perdre beaucoup de temps... Nous avons donc été obligé de passer par WSL et le faire via une distribution Linux avec la commande donnée plus haut...
+
 ## Création d'un fichier PHP
 
 Création d'un dossier `templates` dans le même dossier que le Dockerfile du reverse proxy. A l'intérieur on crée un fichier `config-template.php`. 
@@ -45,3 +47,7 @@ Il faut maintenant copier ces fichiers dans les bons répertoires du serveur :
 COPY apache2-foreground /usr/local/bin/
 COPY templates /var/apache2/templates
 ```
+
+## Lancement du serveur proxy 
+
+Voici à quoi devrait ressembler la commande pour lancer le serveur proxy après toutes ses modifications : `docker run -d -e STATIC_APP=172.17.0.3:80 -e DYNAMIC_APP=172.17.0.2:3000 -p 8080:80 --name srvRP rp_srv`

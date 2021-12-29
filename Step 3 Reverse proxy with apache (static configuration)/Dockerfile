@@ -6,10 +6,7 @@ RUN apt-get update && \
 COPY apache2-foreground /usr/local/bin/
 COPY templates /var/apache2/templates
 
-#RUN chmod 755 /usr/local/bin/apache2-foreground
 COPY conf/ /etc/apache2/
 
 RUN a2enmod proxy proxy_http
 RUN a2ensite 000-* 001-*
-
-CMD ["apache2-foreground"]
