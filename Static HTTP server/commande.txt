@@ -1,3 +1,0 @@
-https://startbootstrap.com/previews/sb-admin-2
-docker run -dit -p 8080:80 my-apache2
-docker build -t my-apache2 .
