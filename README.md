@@ -108,7 +108,7 @@ The third objective is to practice our usage of **Docker**. All the components o
 
 ## Additional steps to get extra points on top of the "base" grade
 
-utiliser traefik + docker-compose
+utiliser traefik + docker-compose 
 ### Load balancing: multiple server nodes (0.5pt)
 
 * You extend the reverse proxy configuration to support **load balancing**. 
