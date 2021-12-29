@@ -1,5 +1,12 @@
 FROM php:7.2-apache
 
+RUN apt-get update && \
+	apt-get install -y vim
+
+COPY apache2-foreground /usr/local/bin/
+COPY templates /var/apache2/templates
+
+#RUN chmod 755 /usr/local/bin/apache2-foreground
 COPY conf/ /etc/apache2/
 
 RUN a2enmod proxy proxy_http
