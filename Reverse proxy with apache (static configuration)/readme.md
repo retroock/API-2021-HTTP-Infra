@@ -19,7 +19,8 @@ RUN a2ensite 000-* 001-*
 Nous allons faire deux commande aux lancements du container afin d'activer deux modules de proxy et d'activer les deux sites que nous avons.
 ## Création du dossier conf
 Voici l'arborescence de ce dossier :
-<img src="./figures/arborescence.png" alt="arborescence"  />
+
+![arborescence](figures/arborescence.PNG)
 
 Comme écrit dans le Dockerfile, nous allons copier le contenu de ce dossier dans le dossier de configuration de notre serveur apache. Les deux fichiers commençant par 000 et 001 contiennent les informations de configuration des sites. 
 
