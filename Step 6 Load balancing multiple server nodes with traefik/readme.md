@@ -75,7 +75,7 @@ Le premier est d'essayer d'accéder au dashboard via l'adresse : `proxy.api.ch:8
 ### Vérifier la détection des différents serveurs
 Dans le dashboard, nous pouvons cliquer sur la section `http services` qui va lister tous les services qui ont été trouvé sur le réseaux. Voici ce que nous avons :
 
-![http services](./figures/capture1.png) 
+![http services](https://github.com/retroock/API-2021-HTTP-Infra/blob/master/Step%206%20Load%20balancing%20multiple%20server%20nodes%20with%20traefik/figures/capture1.PNG) 
 
 Nous pouvons voir que le `dynamicsrv-traefik@docker` possède deux serveurs en loadbalancer et pareil pour le `staticCookies@docker`. Cela veut bien dire que nos quatre serveurs se sont lancés. En cliquant sur ces services nous pouvons accéder aux adresses IP des serveurs et aux différentes configurations.
 
@@ -90,6 +90,6 @@ Maitenant nous pouvons regarder si les sites sont accessibles en y accédant via
 ### Test dynamic cluster
 Comme dit précédemment Traefik se met à jour automatique si des noeuds apparaissent ou disparaissent dans le réseau. Nous pouvons donc désactiver un serveur dynamique et statique afin de voir si dans le menu `http services` ils y sont toujours.
 
-![http services](./figures/capture2.png) 
+![http services](https://github.com/retroock/API-2021-HTTP-Infra/blob/master/Step%206%20Load%20balancing%20multiple%20server%20nodes%20with%20traefik/figures/capture2.PNG) 
 
 Nous pouvons voir que les services sont toujours présent mais il n'y a plus qu'un serveur présent sur chacun d'eux. Donc Traefik à bien vu que ces serveurs n'étaient plus accessible. Et si nous réactivons ces serveurs nous verrons qu'ils vont être de nouveau présent dans Traefik.
