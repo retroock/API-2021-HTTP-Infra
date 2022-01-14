@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  traefik:
+    image: "traefik:v2.5"
+    container_name: "traefik"
+    hostname: "traefik"
+    # active le dashboard
+    command:
+     - "--api.insecure=true"
+     - "--api.dashboard=true"
+     - "--providers.docker"
+     - "--log.level=DEBUG"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    
+  staticsrv: 
+    build: 
+      context: ./server_static # //chemin du dockerfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.staticsrv.rule=Host(`proxy.api.ch`)"
+      - "traefik.http.services.staticCookies.loadbalancer.sticky.cookie=true"
+      
+  dynamicsrv: #
+    build: # //chemin du dockerfile
+      context: ./server_dynamic/
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dynamicsrv.rule=Host(`proxy.api.ch`) && PathPrefix(`/api/zoo/`)"
+      - "traefik.http.middlewares.dynamicsrvpathstrip.stripprefix.prefixes=/api/zoo"
+      - "traefik.http.routers.dynamicsrv.middlewares=dynamicsrvpathstrip@docker"
+      
